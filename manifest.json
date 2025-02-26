@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "PureSearch",
+    "version": "1.0.0",
+    "description": "Hide sponsored content on Google search results.",
+    "permissions": [
+        "activeTab",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "./scripts/background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.google.com/search*",
+                "https://www.google.com/maps/search*",
+                "https://www.bing.com/search*"
+            ],
+            "js": [
+                "./scripts/content.js"
+            ]
+        }
+    ]
+}
